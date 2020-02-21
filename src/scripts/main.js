@@ -10,6 +10,9 @@ renderComponents.renderInterestCards();
 // save new interest after user fills out form
 eventListeners.addSaveButtonEventListener();
 
+// delete specific interest
+eventListeners.addDeleteButtonEventListener();
+
 
 
 
