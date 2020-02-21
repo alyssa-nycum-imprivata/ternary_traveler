@@ -12,7 +12,7 @@ const mainContainer = document.getElementById("mainContainer")
 
 const eventListeners = {
     addSaveButtonEventListener() {
-        // when the user clicks save after filling out the form, save the interest as an object to the database and add it to the DOM
+        // when the user clicks save after filling out the form, save the interest as an object to the database, add it to the DOM, and clear the form
 
         mainContainer.addEventListener("click", () => {
             if (event.target.id.startsWith("save")) {
@@ -25,6 +25,21 @@ const eventListeners = {
                 }
     
                 apiManager.addNewInterest(newInterestObject)
+                    .then(() => {
+                        renderComponents.renderInterestCards(),
+                        renderComponents.clearInterestForm()
+                    })
+            }
+        })
+    },
+    addDeleteButtonEventListener() {
+        // delete the specific interest the user selects 
+        
+        mainContainer.addEventListener("click", () => {
+            if(event.target.id.startsWith("delete")) {
+                const interestIdToDelete = event.target.id.split("--")[1];
+
+                apiManager.deleteInterest(interestIdToDelete)
                     .then(renderComponents.renderInterestCards)
             }
         })

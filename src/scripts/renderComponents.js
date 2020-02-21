@@ -1,5 +1,12 @@
 import apiManager from './apiManager.js';
-import createComponents from './createComponents.js'
+import createComponents from './createComponents.js';
+
+const nameInput = document.querySelector("#name_input");
+const descriptionInput = document.querySelector("#description_input");
+const costInput = document.querySelector("#cost_input");
+const reviewInput = document.querySelector("#review_input");
+const placeInput = document.querySelector("#place_input");
+const interestId = document.querySelector("#interest_id");
 
 const renderComponents = {
     renderCountries() {
@@ -14,9 +21,17 @@ const renderComponents = {
                 })
             })
     },
+    clearInterestForm() {
+        // clears the form after a user clicks save
+        
+        nameInput.value = "";
+        descriptionInput.value = "";
+        costInput.value = "";
+        placeInput.value = "";
+    },
     renderInterestCards() {
         // adds each interest to the DOM
-        
+
         const interestsLog = document.querySelector("#interests_log");
 
         apiManager.getAllInterests()
