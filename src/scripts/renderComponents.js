@@ -30,8 +30,6 @@ const renderComponents = {
         placeInput.value = "";
     },
     renderInterestCards() {
-        // adds each interest to the DOM
-
         const interestsLog = document.querySelector("#interests_log");
 
         apiManager.getAllInterests()
@@ -39,10 +37,14 @@ const renderComponents = {
                 interestsLog.innerHTML = "";
 
                 if (interests.length === 0) {
+                    // if a user has no interests saved, display the following message
+
                     interestsLog.innerHTML = `
                     <h4>You have no saved interests. Fill out the form above to save a place you'd like to go!</h4>
                     `
                 } else {
+                    // otherwise, render interests to DOM
+
                     interests.forEach(interest => {
                         interestsLog.innerHTML += createComponents.createInterestCard(interest)
                     })

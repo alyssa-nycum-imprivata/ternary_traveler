@@ -8,10 +8,10 @@ renderComponents.renderCountries();
 renderComponents.renderInterestCards();
 
 // save new interest after user fills out form
-eventListeners.addSaveButtonEventListener();
+eventListeners.addNewSaveButtonEventListener();
 
 // delete specific interest
-eventListeners.addDeleteButtonEventListener();
+eventListeners.addDeleteButtonsEventListener();
 
 
 

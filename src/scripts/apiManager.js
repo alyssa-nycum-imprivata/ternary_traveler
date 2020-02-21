@@ -23,8 +23,8 @@ const apiManager = {
         })
             .then(resp => resp.json())
     },
-    editInterest(interest) {
-        return fetch(baseUrl + interestsExtension + "/" + `${interest.id}` + expandPlace, {
+    editInterest(id, interest) {
+        return fetch(baseUrl + interestsExtension + "/" + `${id}` + expandPlace, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
