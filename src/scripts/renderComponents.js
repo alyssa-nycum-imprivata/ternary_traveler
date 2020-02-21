@@ -38,9 +38,15 @@ const renderComponents = {
             .then(interests => {
                 interestsLog.innerHTML = "";
 
-                interests.forEach(interest => {
-                    interestsLog.innerHTML += createComponents.createInterestCard(interest)
-                })
+                if (interests.length === 0) {
+                    interestsLog.innerHTML = `
+                    <h4>You have no saved interests. Fill out the form above to save a place you'd like to go!</h4>
+                    `
+                } else {
+                    interests.forEach(interest => {
+                        interestsLog.innerHTML += createComponents.createInterestCard(interest)
+                    })
+                }
             })
     }
 }
